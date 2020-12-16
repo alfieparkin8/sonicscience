@@ -5,17 +5,79 @@
     <title>SonicScience</title>
   </head>
   <body>
-    <p>SonicScience</p>
-    <button>PAPER 1</button>
+    <h1>SonicScience</h1>
+    <form id="tierChecker">
+      <input type="radio" id="foundation" name="tier" value="foundation" checked>Foundation</input>
+      <input type="radio" id="higher" name="tier" value="higher">Higher</input>
+      <input type="submit" onclick="testTier(this.form)">
+    </form>
+    <br>
+    <div id="box">
+    <button class="green">Biology Paper 1</button>
+    <button class="green">Biology Paper 2</button>
+    <br>
+    <br>
+    <button class="red">Chemistry Paper 1</button>
+    <button class="red">Chemistry Paper 2</button>
+    <br>
+    <br>
+    <button class="blue">Physics Paper 1</button>
+    <button class="blue">Physics Paper 2</button>
+  </div>
   </body>
 
+  <script>
+  function testTier() {
+    var x = document.forms[0];
+    var txt = "";
+    var i;
+    for (i = 0; i < x.length; i++) {
+      if (x[i].checked) {
+        txt = x[i].value;
+        alert("You are now looking at " + txt + " papers");
+      }
+    }
+  }
+  </script>
   <style>
-  body {
-    color:red;
+  * {
+    font-family: Arial;
+    font-size: 24px;
   }
 
-  * {
-    background-color: blue;
+  h1{
+    font-size: 36px;
+    color:#0099cc;
+    margin-left: 20px;
+  }
+
+  div#box{
+    padding: 15px;
+    background-color: #DEDEDE;
+    border-radius: 2.5px;
+    border-left-style:solid;
+    border-color:grey;
+    border-width: 10px;
+  }
+
+  button{
+    border:none;
+    text-decoration: none;
+    padding:12.5px;
+    color:white;
+    text-align: center;
+  }
+
+  button.green{
+    background-color: #4CAF50;
+  }
+
+  button.blue{
+    background-color: #33ccff;
+  }
+
+  button.red{
+    background-color: #f44336;
   }
   </style>
 </html>
