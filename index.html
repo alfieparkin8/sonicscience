@@ -7,37 +7,30 @@
   <body>
     <h1>SonicScience</h1>
     <form id="tierChecker">
-      <input type="radio" id="foundation" name="tier" value="foundation" checked>Foundation</input>
-      <input type="radio" id="higher" name="tier" value="higher">Higher</input>
-      <input type="submit" onclick="testTier(this.form)">
+      <input id="fdnbutton" type="radio" id="foundation" name="tier" value="foundation" checked>Foundation</input>
+      <input id="hgrbutton" type="radio" id="higher" name="tier" value="higher">Higher</input>
     </form>
     <br>
     <div id="box">
-    <button class="green" onclick="location.href='b-1f-jun-18.html'">Biology Paper 1</button>
-    <button class="green">Biology Paper 2</button>
+    <a id="b-jun-18" href="b-1f-jun-18.html" class="green" onclick=testTier()>Biology Paper 1</a>
+    <button class="green" disabled>Biology Paper 2</button>
     <br>
     <br>
-    <button class="red">Chemistry Paper 1</button>
-    <button class="red">Chemistry Paper 2</button>
+    <button class="red" disabled>Chemistry Paper 1</button>
+    <button class="red" disabled>Chemistry Paper 2</button>
     <br>
     <br>
-    <button class="blue">Physics Paper 1</button>
-    <button class="blue">Physics Paper 2</button>
+    <button class="blue" disabled>Physics Paper 1</button>
+    <button class="blue" disabled>Physics Paper 2</button>
   </div>
   </body>
 
   <script>
   function testTier() {
-    var x = document.forms[0];
-    var txt = "";
-    var i;
-    for (i = 0; i < x.length; i++) {
-      if (x[i].checked) {
-        txt = x[i].value;
-        alert("You are now looking at " + txt + " papers");
+      if (document.getElementById('hgrbutton').checked) {
+          document.getElementById('b-jun-18').href = "b-1h-jun-18.html"
+        }
       }
-    }
-  }
   </script>
   <style>
   * {
@@ -60,6 +53,14 @@
     border-width: 10px;
   }
 
+  a {
+      border:none;
+      text-decoration: none;
+      padding:12.5px;
+      color:white;
+      text-align: center;
+  }
+
   button{
     border:none;
     text-decoration: none;
@@ -68,7 +69,7 @@
     text-align: center;
   }
 
-  button.green{
+  .green{
     background-color: #4CAF50;
   }
 
