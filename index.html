@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title>SonicScience</title>
   </head>
-  <body>
-    <h1>SonicScience</h1>
+  <body onload="getPreviousTier()">
+    <h1><a href="#">SonicScience</a></h1>
     <form id="tierChecker">
       <input id="fdnbutton" type="radio" id="foundation" name="tier" value="foundation" checked>Foundation</input>
       <input id="hgrbutton" type="radio" id="higher" name="tier" value="higher">Higher</input>
@@ -13,23 +13,33 @@
     <br>
     <div id="box">
     <a id="b-jun-18" href="b-1f-jun-18.html" class="green" onclick=testTier()>Biology Paper 1</a>
-    <button class="green" disabled>Biology Paper 2</button>
+    <button class="disabled" disabled>Biology Paper 2</button>
     <br>
     <br>
-    <button class="red" disabled>Chemistry Paper 1</button>
-    <button class="red" disabled>Chemistry Paper 2</button>
+    <button class="disabled" disabled>Chemistry Paper 1</button>
+    <button class="disabled" disabled>Chemistry Paper 2</button>
     <br>
     <br>
-    <button class="blue" disabled>Physics Paper 1</button>
-    <button class="blue" disabled>Physics Paper 2</button>
+    <button class="disabled" disabled>Physics Paper 1</button>
+    <button class="disabled" disabled>Physics Paper 2</button>
   </div>
   </body>
 
   <script>
+  function getPreviousTier() {
+      if (localStorage.getItem('tier') == "Higher") {
+        document.getElementById('hgrbutton').checked = true;
+      }
+    }
+
   function testTier() {
       if (document.getElementById('hgrbutton').checked) {
+          localStorage.setItem('tier', 'Higher');
           document.getElementById('b-jun-18').href = "b-1h-jun-18.html"
         }
+      else {
+        localStorage.setItem('tier', 'Foundation');
+      }
       }
   </script>
   <style>
@@ -38,7 +48,7 @@
     font-size: 24px;
   }
 
-  h1{
+  h1 a {
     font-size: 36px;
     color:#0099cc;
     margin-left: 20px;
@@ -79,6 +89,10 @@
 
   button.red{
     background-color: #f44336;
+  }
+
+  a.disabled{
+    background-color: grey;
   }
   </style>
 </html>
