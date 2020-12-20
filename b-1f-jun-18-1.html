@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>SonicScience</title>
+  </head>
+  <body onload="getPreviousAnswers()">
+
+    <p id="stats">
+      Marks:
+      <!--Out of paper total-->
+      Grade:
+      <!--Will use paper boundaries-->
+      Percentage:
+    </p>
+    <h1><a href="b-1f-jun-18.html">SonicScience - Biology</a></h1>
+    <div id="box">
+    <a href="#" id="red">1</a>
+    <a href="#" id="orange">2</a>
+    <a href="#" id="yellow">3</a>
+    <a href="#" id="lime">4</a>
+    <a href="#" id="blue">5</a>
+    <a href="#" id="navy">6</a>
+    <a href="#" id="magenta">7</a>
+    <a href="#" id="purple">8</a>
+    <br>
+    <br>
+    <button id="1-1" onclick="question(1)">1.1</button>
+    <button id="1-2" onclick="question(2)">1.2</button>
+    <button id="1-3" onclick="question(3)">1.3</button>
+    <a href="#" id="red">1.4</a>
+    <a href="#" id="red">1.5</a>
+    <a href="#" id="red">1.6</a>
+    <a href="#" id="red">1.7</a>
+    <a href="#" id="red">1.8</a>
+  </div>
+  <br>
+    <div id="answer-box-1">
+      <b>1.1</b> Chromosomes are copied during the cell cycle.
+      Where are chromosomes found?
+    <br>
+    <br>
+    <input id="wrong" type="checkbox"> Cytoplasm</input>
+    <br>
+    <input id="right" type="checkbox"> Nucleus</input>
+    <br>
+    <input id="wrong" type="checkbox"> Ribosomes</input>
+    <br>
+    <input id="wrong" type="checkbox"> Vacuole</input>
+    <br>
+    <br>
+    <button type="button" onclick="checkAnswerTickBox(1)">Submit</button>
+    </div>
+    <div id="answer-box-2">
+      <b>1.2</b> What is the name of a section of a chromosome that controls a characteristic?
+    <br>
+    <br>
+    <form autocomplete="on">
+    <input type="textarea" id="question-box-2"></input>
+    <button type="button" onclick="checkTextAnswer(2)">Submit</button>
+  </form>
+    </div>
+    <div id="answer-box-3">
+      <b>TO BE MADE</b>
+    </div>
+    <footer>Biology Foundation Paper 1 June 2018</footer>
+  </body>
+  <script>
+  var questionNumber = 1;
+
+  function question(questionNumber){
+    if (questionNumber == 1){
+      document.getElementById('answer-box-' + questionNumber).style.display = "block";
+        document.getElementById('answer-box-3').style.display = "none";
+      document.getElementById('answer-box-2').style.display = "none";
+      }
+    if (questionNumber == 2){
+      document.getElementById('answer-box-1').style.display = "none";
+      document.getElementById('answer-box-' + questionNumber).style.display = "block";
+      document.getElementById('answer-box-3').style.display = "none";
+      }
+    if (questionNumber == 3){
+        document.getElementById('answer-box-1').style.display = "none";
+        document.getElementById('answer-box-2').style.display = "none";
+        document.getElementById('answer-box-' + questionNumber).style.display = "block";
+        }
+  }
+
+  function getPreviousAnswers(){
+    question(1);
+    for (var i = 0; i < 9; i++) {
+      if (localStorage.getItem("b-1f-jun-18-1-" + i) == "correct"){
+        document.getElementById('answer-box-' + i).style.backgroundColor = "#99ff99";
+        document.getElementById('1-' + i).style.backgroundColor = "#99ff99";
+      }
+    }
+  }
+
+  function checkTextAnswer(answerNumber){
+    var answerList = ["allele","gene"];
+    if (answerNumber = 2){
+    if(document.getElementById("question-box-" + answerNumber).value.includes(answerList[0]) || document.getElementById("question-box-" + answerNumber).value.includes(answerList[1])) {
+      document.getElementById("answer-box-" + answerNumber).style.backgroundColor = "#99ff99";
+      document.getElementById("1-" + answerNumber).style.backgroundColor = "#99ff99";
+      localStorage.setItem("b-1f-jun-18-1-" + answerNumber, "correct");
+    }
+  }
+  }
+
+  function checkAnswerTickBox(answerNumber){
+  if (document.getElementById("right").checked == true) {
+    document.getElementById("answer-box-" + answerNumber).style.backgroundColor = "#99ff99";
+    document.getElementById("1-" + answerNumber).style.backgroundColor = "#99ff99";
+    localStorage.setItem("b-1f-jun-18-1-" + answerNumber, "correct");
+  }
+}
+  </script>
+  <style>
+  * {
+    font-family: Arial;
+    font-size: 24px;
+  }
+
+  h1 a{
+    font-size: 36px;
+    color: #00e600;
+    margin-left: 20px;
+    background-color: white;
+  }
+
+  footer{
+  font-size: 18px;
+  background-color: grey;
+  padding:10px;
+  color:white;
+  }
+
+  a{
+    border:none;
+    background-color: #b30000;
+    text-decoration: none;
+    padding:12.5px;
+    color:white;
+    text-align: center;
+    border-radius: 10px;
+    font-size:16px;
+  }
+
+  button {
+      border:none;
+      background-color: #b30000;
+      text-decoration: none;
+      padding:12.5px;
+      color:white;
+      text-align: center;
+      border-radius: 10px;
+      font-size:16px;
+  }
+
+  a.disabled{
+    background-color: grey;
+  }
+
+  #orange{
+    background-color: #e65c00;
+  }
+
+  #yellow{
+    background-color: #ffff33;
+  }
+
+  #lime{
+    background-color: #33ff33;
+  }
+
+  #blue{
+    background-color: #4db8ff;
+  }
+
+  #navy{
+    background-color: #3333ff;
+  }
+
+  #magenta{
+    background-color: #ff33ff;
+  }
+
+  #purple{
+    background-color: #99004d;
+  }
+
+  div#box{
+    padding: 15px;
+    background-color: #DEDEDE;
+    border-radius: 2.5px;
+    border-left-style:solid;
+    border-color:#00e600;
+    border-width: 10px;
+  }
+
+  div#answer-box-1{
+    padding: 15px;
+    background-color: #DEDEDE;
+    border-radius: 2.5px;
+    border-left-style:solid;
+    border-color:#00e600;
+    border-width: 10px;
+  }
+
+  div#answer-box-2{
+    display: none;
+    padding: 15px;
+    background-color: #DEDEDE;
+    border-radius: 2.5px;
+    border-left-style:solid;
+    border-color:#00e600;
+    border-width: 10px;
+  }
+
+  p#stats{
+    text-align:right;
+    background-color: #00e600;
+    color:white;
+    float:right;
+    padding:12.5px;
+    border-radius:10px;
+    margin-top:0px;
+  }
+  </style>
+</html>
