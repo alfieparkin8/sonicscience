@@ -33,31 +33,44 @@
     <a href="#" id="red">1.6</a>
     <a href="#" id="red">1.7</a>
     <a href="#" id="red">1.8</a>
+    <p id="markNum"><b>[1 mark]</b></p>
   </div>
   <br>
     <div id="answer-box-1">
-      <b>1.1</b> Chromosomes are copied during the cell cycle.
-      Where are chromosomes found?
+      <b>1.1</b> What is structure <b>A</b>?
+Tick <b>one</b> box.
     <br>
+    <br>
+    <img id="q1-image" src="img/q1.jpeg" alt="Check your Internet Connection">
+    <br>
+    <input id="right" type="checkbox"> Cell Membrane</input>
+    <br>
+    <input id="wrong" type="checkbox"> Cell Wall</input>
     <br>
     <input id="wrong" type="checkbox"> Cytoplasm</input>
     <br>
-    <input id="right" type="checkbox"> Nucleus</input>
+    <input id="wrong" type="checkbox"> Nucleus</input>
     <br>
-    <input id="wrong" type="checkbox"> Ribosomes</input>
-    <br>
-    <input id="wrong" type="checkbox"> Vacuole</input>
-    <br>
-    <br>
-    <button type="button" onclick="checkAnswerTickBox(1)">Submit</button>
+    <button class="submit-button" type="button" onclick="checkAnswerTickBox(1)">Submit</button>
     </div>
     <div id="answer-box-2">
-      <b>1.2</b> What is the name of a section of a chromosome that controls a characteristic?
+      <b>1.2</b> White blood cells help to defend the body against pathogens. How do the white blood cells do this?
+Tick <b>three</b> boxes.
     <br>
     <br>
-    <form autocomplete="on">
-    <input type="textarea" id="question-box-2"></input>
-    <button type="button" onclick="checkTextAnswer(2)">Submit</button>
+    <input id="wrong" type="checkbox"> Clone pathogens</input>
+    <br>
+    <input id="right1" type="checkbox"> Engulf pathogens</input>
+    <br>
+    <input id="wrong" type="checkbox"> Produce antibiotics</input>
+    <br>
+    <input id="right2" type="checkbox"> Produce antibodies</input>
+    <br>
+    <input id="right3" type="checkbox"> Produce antitoxins</input>
+    <br>
+    <input id="wrong" type="checkbox"> Produce toxins</input>
+    <br>
+    <button class="submit-button" type="button" onclick="checkAnswerMultipleTickBox(2)">Submit</button>
   </form>
     </div>
     <div id="answer-box-3">
@@ -67,17 +80,20 @@
   </body>
   <script>
   var questionNumber = 1;
+  var questionPoints = document.getElementById('markNum');
 
   function question(questionNumber){
     if (questionNumber == 1){
       document.getElementById('answer-box-' + questionNumber).style.display = "block";
-        document.getElementById('answer-box-3').style.display = "none";
+      document.getElementById('answer-box-3').style.display = "none";
       document.getElementById('answer-box-2').style.display = "none";
+      questionPoints.innerHTML = "[1 Mark]";
       }
     if (questionNumber == 2){
       document.getElementById('answer-box-1').style.display = "none";
       document.getElementById('answer-box-' + questionNumber).style.display = "block";
       document.getElementById('answer-box-3').style.display = "none";
+      questionPoints.innerHTML = "[3 Marks]";
       }
     if (questionNumber == 3){
         document.getElementById('answer-box-1').style.display = "none";
@@ -95,7 +111,7 @@
       }
     }
   }
-
+  /*
   function checkTextAnswer(answerNumber){
     var answerList = ["allele","gene"];
     if (answerNumber = 2){
@@ -106,6 +122,7 @@
     }
   }
   }
+  */
 
   function checkAnswerTickBox(answerNumber){
   if (document.getElementById("right").checked == true) {
@@ -113,6 +130,14 @@
     document.getElementById("1-" + answerNumber).style.backgroundColor = "#99ff99";
     localStorage.setItem("b-1f-jun-18-1-" + answerNumber, "correct");
   }
+}
+
+function checkAnswerMultipleTickBox(answerNumber){
+if (document.getElementById("right1").checked == true && document.getElementById("right2").checked == true && document.getElementById("right3").checked == true) {
+  document.getElementById("answer-box-" + answerNumber).style.backgroundColor = "#99ff99";
+  document.getElementById("1-" + answerNumber).style.backgroundColor = "#99ff99";
+  localStorage.setItem("b-1f-jun-18-1-" + answerNumber, "correct");
+}
 }
   </script>
   <style>
@@ -144,6 +169,23 @@
     text-align: center;
     border-radius: 10px;
     font-size:16px;
+  }
+
+  #markNum {
+    float:right;
+    font-weight: bold;
+  }
+
+  .submit-button {
+      border:none;
+      background-color: #a3a3c2;
+      text-decoration: none;
+      padding:8px;
+      color:white;
+      text-align: center;
+      border-radius: 5px;
+      font-size:16px;
+      margin-top:10px;
   }
 
   button {
@@ -217,6 +259,15 @@
     border-width: 10px;
   }
 
+  div#answer-box-3{
+    padding: 15px;
+    background-color: #DEDEDE;
+    border-radius: 2.5px;
+    border-left-style:solid;
+    border-color:#00e600;
+    border-width: 10px;
+  }
+
   p#stats{
     text-align:right;
     background-color: #00e600;
@@ -225,6 +276,11 @@
     padding:12.5px;
     border-radius:10px;
     margin-top:0px;
+  }
+
+  #q1-image {
+    width:20%;
+    height:20%;
   }
   </style>
 </html>
