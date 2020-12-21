@@ -28,11 +28,11 @@
     <button id="1-1" onclick="question(1)">1.1</button>
     <button id="1-2" onclick="question(2)">1.2</button>
     <button id="1-3" onclick="question(3)">1.3</button>
-    <a href="#" id="red">1.4</a>
-    <a href="#" id="red">1.5</a>
-    <a href="#" id="red">1.6</a>
-    <a href="#" id="red">1.7</a>
-    <a href="#" id="red">1.8</a>
+    <button id="1-4" onclick="question(4)">1.4</button>
+    <button id="1-5" onclick="question(5)">1.5</button>
+    <button id="1-6" onclick="question(6)">1.6</button>
+    <button id="1-7" onclick="question(7)">1.7</button>
+    <button id="1-8" onclick="question(8)">1.8</button>
     <p id="markNum"><b>[1 mark]</b></p>
   </div>
   <br>
@@ -74,7 +74,22 @@ Tick <b>three</b> boxes.
   </form>
     </div>
     <div id="answer-box-3">
-      <b>TO BE MADE</b>
+      <b>1.3</b> Use <b>Figure 2</b> to calculate the decrease in the number of cases of measles between
+2012 and 2015
+<br>
+<br>
+<img id="q3-image" src="img/q3.jpeg" alt="Check your Internet Connection">
+<br>
+<input id="question-box-3" type="number"></input>
+<submit class="submit-button" type="button" onclick="checkTextAnswer(3)">Submit</button>
+    </div>
+    <div id="answer-box-4">
+      <b>1.4</b> Suggest <b>one</b> reason for the decrease in the number of cases of measles between
+2012 and 2015
+<br>
+<br>
+<input id="question-box-4" type="text" style="width:80%"></input>
+<submit class="submit-button" type="button" onclick="checkTextAnswer(4)">Submit</button>
     </div>
     <footer>Biology Foundation Paper 1 June 2018</footer>
   </body>
@@ -85,20 +100,31 @@ Tick <b>three</b> boxes.
   function question(questionNumber){
     if (questionNumber == 1){
       document.getElementById('answer-box-' + questionNumber).style.display = "block";
-      document.getElementById('answer-box-3').style.display = "none";
       document.getElementById('answer-box-2').style.display = "none";
-      questionPoints.innerHTML = "[1 Mark]";
+      document.getElementById('answer-box-3').style.display = "none";
+      document.getElementById('answer-box-4').style.display = "none";
+      questionPoints.innerHTML = "[1 mark]";
       }
     if (questionNumber == 2){
       document.getElementById('answer-box-1').style.display = "none";
       document.getElementById('answer-box-' + questionNumber).style.display = "block";
       document.getElementById('answer-box-3').style.display = "none";
-      questionPoints.innerHTML = "[3 Marks]";
+      document.getElementById('answer-box-4').style.display = "none";
+      questionPoints.innerHTML = "[3 marks]";
       }
     if (questionNumber == 3){
         document.getElementById('answer-box-1').style.display = "none";
         document.getElementById('answer-box-2').style.display = "none";
         document.getElementById('answer-box-' + questionNumber).style.display = "block";
+        document.getElementById('answer-box-4').style.display = "none";
+        questionPoints.innerHTML = "[2 marks]";
+        }
+    if (questionNumber == 4){
+        document.getElementById('answer-box-1').style.display = "none";
+        document.getElementById('answer-box-2').style.display = "none";
+        document.getElementById('answer-box-3').style.display = "none";
+        document.getElementById('answer-box-' + questionNumber).style.display = "block";
+        questionPoints.innerHTML = "[1 mark]";
         }
   }
 
@@ -111,18 +137,25 @@ Tick <b>three</b> boxes.
       }
     }
   }
-  /*
   function checkTextAnswer(answerNumber){
-    var answerList = ["allele","gene"];
-    if (answerNumber = 2){
-    if(document.getElementById("question-box-" + answerNumber).value.includes(answerList[0]) || document.getElementById("question-box-" + answerNumber).value.includes(answerList[1])) {
+    var answerList = ["1950","vaccine","vaccinated","immune"];
+    if (answerNumber = 3){
+    var questionbox = document.getElementById("question-box-" + answerNumber)
+    if(questionbox.value.includes(answerList[0])) {
       document.getElementById("answer-box-" + answerNumber).style.backgroundColor = "#99ff99";
       document.getElementById("1-" + answerNumber).style.backgroundColor = "#99ff99";
       localStorage.setItem("b-1f-jun-18-1-" + answerNumber, "correct");
     }
   }
+  if (answerNumber = 4){
+  var questionbox = document.getElementById("question-box-" + answerNumber)
+  if(questionbox.value.includes(answerList[1]) || questionbox.value.includes(answerList[2]) || questionbox.value.includes(answerList[3])) {
+    document.getElementById("answer-box-" + answerNumber).style.backgroundColor = "#99ff99";
+    document.getElementById("1-" + answerNumber).style.backgroundColor = "#99ff99";
+    localStorage.setItem("b-1f-jun-18-1-" + answerNumber, "correct");
   }
-  */
+}
+  }
 
   function checkAnswerTickBox(answerNumber){
   if (document.getElementById("right").checked == true) {
@@ -268,6 +301,15 @@ if (document.getElementById("right1").checked == true && document.getElementById
     border-width: 10px;
   }
 
+  div#answer-box-4{
+    padding: 15px;
+    background-color: #DEDEDE;
+    border-radius: 2.5px;
+    border-left-style:solid;
+    border-color:#00e600;
+    border-width: 10px;
+  }
+
   p#stats{
     text-align:right;
     background-color: #00e600;
@@ -281,6 +323,11 @@ if (document.getElementById("right1").checked == true && document.getElementById
   #q1-image {
     width:20%;
     height:20%;
+  }
+
+  #q3-image {
+    width:75%;
+    height:75%;
   }
   </style>
 </html>
