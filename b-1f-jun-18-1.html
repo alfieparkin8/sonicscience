@@ -53,6 +53,7 @@ Tick <b>one</b> box.
     <input id="wrong" type="checkbox"> Nucleus</input>
     <br>
     <button class="submit-button" type="button" onclick="checkAnswerTickBox(1)">Submit</button>
+    <p id="marksAchieved-1">[0/1]</p>
     </div>
     <div id="answer-box-2">
       <b>1.2</b> White blood cells help to defend the body against pathogens. How do the white blood cells do this?
@@ -73,6 +74,7 @@ Tick <b>three</b> boxes.
     <br>
     <button class="submit-button" type="button" onclick="checkAnswerMultipleTickBox(2)">Submit</button>
   </form>
+    <p id="marksAchieved-2">[0/3]</p>
     </div>
     <div id="answer-box-3">
       <b>1.3</b> Use <b>Figure 2</b> to calculate the decrease in the number of cases of measles between
@@ -83,6 +85,7 @@ Tick <b>three</b> boxes.
 <br>
 <input id="question-box-3" type="number"></input>
 <submit class="submit-button" type="button" onclick="checkTextAnswer(3)">Submit</button>
+    <p id="marksAchieved-3">[0/2]</p>
     </div>
     <div id="answer-box-4">
       <b>1.4</b> Suggest <b>one</b> reason for the decrease in the number of cases of measles between
@@ -91,6 +94,7 @@ Tick <b>three</b> boxes.
 <br>
 <input id="question-box-4" type="text" style="width:80%"></input>
 <submit class="submit-button" type="button" onclick="checkTextAnswer(4)">Submit</button>
+    <p id="marksAchieved-4">[0/1]</p>
     </div>
     <div id="answer-box-5">
     <b>1.5</b> Antibiotics <b>cannot</b> be used to treat measles. Suggest why.
@@ -98,6 +102,7 @@ Tick <b>three</b> boxes.
     <br>
     <input id="question-box-5" type="text" style="width:80%"></input>
     <submit class="submit-button" type="button" onclick="checkTextAnswer(5)">Submit</button>
+    <p id="marksAchieved-5">[0/1]</p>
     </div>
     <div id="answer-box-6">
     <b>1.6</b> Gonorrhoea is a disease caused by a bacterium. Gonorrhoea <b>can</b> be treated with antibiotics. Give <b>one</b> other way to control the spread of gonorrhoea.
@@ -105,6 +110,7 @@ Tick <b>three</b> boxes.
     <br>
     <input id="question-box-6" type="text" style="width:80%"></input>
     <submit class="submit-button" type="button" onclick="checkTextAnswer(6)">Submit</button>
+    <p id="marksAchieved-6">[0/1]</p>
     </div>
     <div id="answer-box-7">
     <b>1.7</b> Give <b>one</b> control variable the scientist used.
@@ -114,6 +120,7 @@ Tick <b>three</b> boxes.
     <br>
     <input id="question-box-7" type="text" style="width:80%"></input>
     <submit class="submit-button" type="button" onclick="checkTextAnswer(7)">Submit</button>
+    <p id="marksAchieved-7">[0/1]</p>
     </div>
     <div id="answer-box-8">
     <b>1.8</b> Suggest why <b>one</b> disc was soaked in water.
@@ -121,13 +128,21 @@ Tick <b>three</b> boxes.
     <br>
     <input id="question-box-8" type="text" style="width:80%"></input>
     <submit class="submit-button" type="button" onclick="checkTextAnswer(8)">Submit</button>
+    <p id="marksAchieved-8">[0/1]</p>
     </div>
     <div id="answer-box-9">
     <b>1.9</b> Which antibiotic in <b>Figure 3</b> would be the best to treat gonorrhoea? Give a reason for your answer.
     <br>
     <br>
-    <input id="question-box-9" type="text" style="width:80%"></input>
+    Antibiotic
+    <br>
+    <input id="question-box-9" type="text" style="width:5%;"></input>
+    <br>
+    Reason
+    <br>
+    <input id="question-box-9-5" type="text" style="width:80%;"></input>
     <submit class="submit-button" type="button" onclick="checkTextAnswer(9)">Submit</button>
+    <p id="marksAchieved-9">[0/2]</p>
     </div>
     <footer>Biology Foundation Paper 1 June 2018</footer>
   </body>
@@ -249,36 +264,129 @@ Tick <b>three</b> boxes.
   function getPreviousAnswers(){
     question(1);
     for (var i = 0; i < 10; i++) {
+      if (localStorage.getItem("b-1f-jun-18-1-1") == "correct" && localStorage.getItem("b-1f-jun-18-1-2") == "correct" && localStorage.getItem("b-1f-jun-18-1-3") == "correct" && localStorage.getItem("b-1f-jun-18-1-4") == "correct"){
+        if (localStorage.getItem("b-1f-jun-18-1-5") == "correct" && localStorage.getItem("b-1f-jun-18-1-6") == "correct" && localStorage.getItem("b-1f-jun-18-1-7") == "correct" && localStorage.getItem("b-1f-jun-18-1-8") == "correct" && localStorage.getItem("b-1f-jun-18-1-9") == "correct") {
+            document.getElementById('red').style.backgroundColor = "#99ff99";
+        }
+      }
+      var questionWorth = document.getElementById('marks-' + i);
       if (localStorage.getItem("b-1f-jun-18-1-" + i) == "correct"){
         document.getElementById('answer-box-' + i).style.backgroundColor = "#99ff99";
         document.getElementById('1-' + i).style.backgroundColor = "#99ff99";
       }
+      if (localStorage.getItem("b-1f-jun-18-1-1") == "correct"){
+        document.getElementById('marksAchieved-1').innerHTML = "[1/1]"
+      }
+      if (localStorage.getItem("b-1f-jun-18-1-2") == "correct"){
+        document.getElementById('marksAchieved-2').innerHTML = "[3/3]"
+      }
+      if (localStorage.getItem("b-1f-jun-18-1-3") == "correct"){
+        document.getElementById('marksAchieved-3').innerHTML = "[2/2]"
+      }
+      if (localStorage.getItem("b-1f-jun-18-1-4") == "correct"){
+        document.getElementById('marksAchieved-4').innerHTML = "[1/1]"
+      }
+      if (localStorage.getItem("b-1f-jun-18-1-5") == "correct"){
+        document.getElementById('marksAchieved-5').innerHTML = "[1/1]"
+      }
+      if (localStorage.getItem("b-1f-jun-18-1-6") == "correct"){
+        document.getElementById('marksAchieved-6').innerHTML = "[1/1]"
+      }
+      if (localStorage.getItem("b-1f-jun-18-1-7") == "correct"){
+        document.getElementById('marksAchieved-7').innerHTML = "[1/1]"
+      }
+      if (localStorage.getItem("b-1f-jun-18-1-8") == "correct"){
+        document.getElementById('marksAchieved-8').innerHTML = "[1/1]"
+      }
+      if (localStorage.getItem("b-1f-jun-18-1-9") == "correct"){
+        document.getElementById('marksAchieved-9').innerHTML = "[2/2]"
+      }
     }
   }
   function checkTextAnswer(answerNumber){
-    var answerList = ["1950","vaccine","vaccinated","immune","virus","viruses"];
+    var questionPoints = document.getElementById('markNum');
+    var letters = ["A","B","C","D"];
+    var answerList = ["1950","vaccine","vaccinated","immune","virus","viruses","barrier method","condom","vaccination","avoid sex","of paper disk","concentration","of antibiotic","time","temperature","control","effective","largest","killed"];
     if (answerNumber = 3){
+    var currentPoints = document.getElementById('marksAchieved-3');
     var questionbox = document.getElementById("question-box-" + answerNumber)
     if(questionbox.value.includes(answerList[0])) {
       document.getElementById("answer-box-" + answerNumber).style.backgroundColor = "#99ff99";
       document.getElementById("1-" + answerNumber).style.backgroundColor = "#99ff99";
       localStorage.setItem("b-1f-jun-18-1-" + answerNumber, "correct");
+      currentPoints.innerHTML = "[2/2]";
     }
   }
   if (answerNumber = 4){
+  var currentPoints = document.getElementById('marksAchieved-4');
   var questionbox = document.getElementById("question-box-" + answerNumber)
   if(questionbox.value.includes(answerList[1]) || questionbox.value.includes(answerList[2]) || questionbox.value.includes(answerList[3])) {
     document.getElementById("answer-box-" + answerNumber).style.backgroundColor = "#99ff99";
     document.getElementById("1-" + answerNumber).style.backgroundColor = "#99ff99";
     localStorage.setItem("b-1f-jun-18-1-" + answerNumber, "correct");
+    currentPoints.innerHTML = "[1/1]";
   }
 }
 if (answerNumber = 5){
-var questionbox = document.getElementById("question-box-" + answerNumber)
+var currentPoints = document.getElementById('marksAchieved-5');
+var questionbox = document.getElementById("question-box-" + answerNumber);
 if(questionbox.value.includes(answerList[4]) || questionbox.value.includes(answerList[5])) {
   document.getElementById("answer-box-" + answerNumber).style.backgroundColor = "#99ff99";
   document.getElementById("1-" + answerNumber).style.backgroundColor = "#99ff99";
   localStorage.setItem("b-1f-jun-18-1-" + answerNumber, "correct");
+currentPoints.innerHTML = "[1/1]";
+}
+}
+if (answerNumber = 6){
+var currentPoints = document.getElementById('marksAchieved-6');
+var questionbox = document.getElementById("question-box-" + answerNumber);
+if(questionbox.value.includes(answerList[6]) || questionbox.value.includes(answerList[7]) || questionbox.value.includes(answerList[8]) || questionbox.value.includes(answerList[9])) {
+  document.getElementById("answer-box-" + answerNumber).style.backgroundColor = "#99ff99";
+  document.getElementById("1-" + answerNumber).style.backgroundColor = "#99ff99";
+  localStorage.setItem("b-1f-jun-18-1-" + answerNumber, "correct");
+currentPoints.innerHTML = "[1/1]";
+}
+}
+if (answerNumber = 7){
+var currentPoints = document.getElementById('marksAchieved-7');
+var questionbox = document.getElementById("question-box-" + answerNumber);
+if(questionbox.value.includes(answerList[10]) || questionbox.value.includes(answerList[11]) || questionbox.value.includes(answerList[12]) || questionbox.value.includes(answerList[13]) || questionbox.value.includes(answerList[14])) {
+  document.getElementById("answer-box-" + answerNumber).style.backgroundColor = "#99ff99";
+  document.getElementById("1-" + answerNumber).style.backgroundColor = "#99ff99";
+  localStorage.setItem("b-1f-jun-18-1-" + answerNumber, "correct");
+currentPoints.innerHTML = "[1/1]";
+}
+}
+if (answerNumber = 8){
+  var currentPoints = document.getElementById('marksAchieved-8');
+var questionbox = document.getElementById("question-box-" + answerNumber);
+if(questionbox.value.includes(answerList[15]) || questionbox.value.includes(answerList[16])) {
+  document.getElementById("answer-box-" + answerNumber).style.backgroundColor = "#99ff99";
+  document.getElementById("1-" + answerNumber).style.backgroundColor = "#99ff99";
+  localStorage.setItem("b-1f-jun-18-1-" + answerNumber, "correct");
+currentPoints.innerHTML = "[1/1]";
+}
+}
+if (answerNumber = 9){
+var questionbox1 = document.getElementById("question-box-" + answerNumber);
+var questionbox2 = document.getElementById("question-box-9-5");
+var currentPoints = document.getElementById('marksAchieved-9');
+if(questionbox1.value.includes(letters[0]) && questionbox2.value.includes(answerList[17])) {
+  document.getElementById("answer-box-" + answerNumber).style.backgroundColor = "#99ff99";
+  document.getElementById("1-" + answerNumber).style.backgroundColor = "#99ff99";
+  localStorage.setItem("b-1f-jun-18-1-" + answerNumber, "correct");
+  currentPoints.innerHTML = "[2/2]";
+} else if (questionbox1.value.includes(letters[0])){
+  currentPoints.innerHTML = "[1/2]";
+}
+else if (questionbox2.value.includes(answerList[17]) || questionbox2.value.includes(answerList[18])) {
+  currentPoints.innerHTML = "[1/2]";
+}
+if(questionbox1.value.includes(letters[0]) && questionbox2.value.includes(answerList[18])) {
+  document.getElementById("answer-box-" + answerNumber).style.backgroundColor = "#99ff99";
+  document.getElementById("1-" + answerNumber).style.backgroundColor = "#99ff99";
+  localStorage.setItem("b-1f-jun-18-1-" + answerNumber, "correct");
+  currentPoints.innerHTML = "[2/2]";
 }
 }
   }
@@ -288,6 +396,7 @@ if(questionbox.value.includes(answerList[4]) || questionbox.value.includes(answe
     document.getElementById("answer-box-" + answerNumber).style.backgroundColor = "#99ff99";
     document.getElementById("1-" + answerNumber).style.backgroundColor = "#99ff99";
     localStorage.setItem("b-1f-jun-18-1-" + answerNumber, "correct");
+    document.getElementById('marksAchieved-1').innerHTML = "[1/1]"
   }
 }
 
@@ -296,6 +405,15 @@ if (document.getElementById("right1").checked == true && document.getElementById
   document.getElementById("answer-box-" + answerNumber).style.backgroundColor = "#99ff99";
   document.getElementById("1-" + answerNumber).style.backgroundColor = "#99ff99";
   localStorage.setItem("b-1f-jun-18-1-" + answerNumber, "correct");
+  document.getElementById('marksAchieved-2').innerHTML = "[3/3]"
+}
+else if (document.getElementById("right1").checked == true && document.getElementById("right2").checked == true || document.getElementById("right1").checked == true && document.getElementById("right3").checked == true || document.getElementById("right2").checked == true && document.getElementById("right3").checked == true)
+{
+  document.getElementById('marksAchieved-2').innerHTML = "[2/3]"
+}
+else if (document.getElementById("right1").checked == true || document.getElementById("right2").checked == true || document.getElementById("right3").checked == true)
+{
+  document.getElementById('marksAchieved-2').innerHTML = "[1/3]"
 }
 }
   </script>
@@ -489,6 +607,71 @@ if (document.getElementById("right1").checked == true && document.getElementById
     padding:12.5px;
     border-radius:10px;
     margin-top:0px;
+  }
+
+  #marksAchieved-1 {
+    float:right;
+    font-weight: bold;
+    color:black;
+    margin:10px;
+  }
+
+  #marksAchieved-2 {
+    float:right;
+    font-weight: bold;
+    color:black;
+    margin:10px;
+  }
+
+  #marksAchieved-3 {
+    float:right;
+    font-weight: bold;
+    color:black;
+    margin:10px;
+  }
+
+  #marksAchieved-4 {
+    float:right;
+    font-weight: bold;
+    color:black;
+    margin:10px;
+  }
+
+  #marksAchieved-5 {
+    float:right;
+    font-weight: bold;
+    color:black;
+    margin:10px;
+  }
+
+  #marksAchieved-6 {
+    float:right;
+    font-weight: bold;
+    color:black;
+    margin:10px;
+  }
+
+
+  #marksAchieved-7 {
+    float:right;
+    font-weight: bold;
+    color:black;
+    margin:10px;
+  }
+
+
+  #marksAchieved-8 {
+    float:right;
+    font-weight: bold;
+    color:black;
+    margin:10px;
+  }
+
+  #marksAchieved-9 {
+    float:right;
+    font-weight: bold;
+    color:black;
+    margin:10px;
   }
 
   #q1-image {
