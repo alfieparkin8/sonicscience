@@ -33,6 +33,7 @@
     <button id="1-6" onclick="question(6)">1.6</button>
     <button id="1-7" onclick="question(7)">1.7</button>
     <button id="1-8" onclick="question(8)">1.8</button>
+    <button id="1-9" onclick="question(9)">1.9</button>
     <p id="markNum"><b>[1 mark]</b></p>
   </div>
   <br>
@@ -91,6 +92,43 @@ Tick <b>three</b> boxes.
 <input id="question-box-4" type="text" style="width:80%"></input>
 <submit class="submit-button" type="button" onclick="checkTextAnswer(4)">Submit</button>
     </div>
+    <div id="answer-box-5">
+    <b>1.5</b> Antibiotics <b>cannot</b> be used to treat measles. Suggest why.
+    <br>
+    <br>
+    <input id="question-box-5" type="text" style="width:80%"></input>
+    <submit class="submit-button" type="button" onclick="checkTextAnswer(5)">Submit</button>
+    </div>
+    <div id="answer-box-6">
+    <b>1.6</b> Gonorrhoea is a disease caused by a bacterium. Gonorrhoea <b>can</b> be treated with antibiotics. Give <b>one</b> other way to control the spread of gonorrhoea.
+    <br>
+    <br>
+    <input id="question-box-6" type="text" style="width:80%"></input>
+    <submit class="submit-button" type="button" onclick="checkTextAnswer(6)">Submit</button>
+    </div>
+    <div id="answer-box-7">
+    <b>1.7</b> Give <b>one</b> control variable the scientist used.
+    <br>
+    <br>
+    <img id="q7-image" src="img/q7.jpeg" alt="Check your Internet Connection">
+    <br>
+    <input id="question-box-7" type="text" style="width:80%"></input>
+    <submit class="submit-button" type="button" onclick="checkTextAnswer(7)">Submit</button>
+    </div>
+    <div id="answer-box-8">
+    <b>1.8</b> Suggest why <b>one</b> disc was soaked in water.
+    <br>
+    <br>
+    <input id="question-box-8" type="text" style="width:80%"></input>
+    <submit class="submit-button" type="button" onclick="checkTextAnswer(8)">Submit</button>
+    </div>
+    <div id="answer-box-9">
+    <b>1.9</b> Which antibiotic in <b>Figure 3</b> would be the best to treat gonorrhoea? Give a reason for your answer.
+    <br>
+    <br>
+    <input id="question-box-9" type="text" style="width:80%"></input>
+    <submit class="submit-button" type="button" onclick="checkTextAnswer(9)">Submit</button>
+    </div>
     <footer>Biology Foundation Paper 1 June 2018</footer>
   </body>
   <script>
@@ -103,6 +141,11 @@ Tick <b>three</b> boxes.
       document.getElementById('answer-box-2').style.display = "none";
       document.getElementById('answer-box-3').style.display = "none";
       document.getElementById('answer-box-4').style.display = "none";
+      document.getElementById('answer-box-5').style.display = "none";
+      document.getElementById('answer-box-6').style.display = "none";
+      document.getElementById('answer-box-7').style.display = "none";
+      document.getElementById('answer-box-8').style.display = "none";
+      document.getElementById('answer-box-9').style.display = "none";
       questionPoints.innerHTML = "[1 mark]";
       }
     if (questionNumber == 2){
@@ -110,6 +153,11 @@ Tick <b>three</b> boxes.
       document.getElementById('answer-box-' + questionNumber).style.display = "block";
       document.getElementById('answer-box-3').style.display = "none";
       document.getElementById('answer-box-4').style.display = "none";
+      document.getElementById('answer-box-5').style.display = "none";
+      document.getElementById('answer-box-6').style.display = "none";
+      document.getElementById('answer-box-7').style.display = "none";
+      document.getElementById('answer-box-8').style.display = "none";
+      document.getElementById('answer-box-9').style.display = "none";
       questionPoints.innerHTML = "[3 marks]";
       }
     if (questionNumber == 3){
@@ -117,6 +165,11 @@ Tick <b>three</b> boxes.
         document.getElementById('answer-box-2').style.display = "none";
         document.getElementById('answer-box-' + questionNumber).style.display = "block";
         document.getElementById('answer-box-4').style.display = "none";
+        document.getElementById('answer-box-5').style.display = "none";
+        document.getElementById('answer-box-6').style.display = "none";
+        document.getElementById('answer-box-7').style.display = "none";
+        document.getElementById('answer-box-8').style.display = "none";
+        document.getElementById('answer-box-9').style.display = "none";
         questionPoints.innerHTML = "[2 marks]";
         }
     if (questionNumber == 4){
@@ -124,13 +177,78 @@ Tick <b>three</b> boxes.
         document.getElementById('answer-box-2').style.display = "none";
         document.getElementById('answer-box-3').style.display = "none";
         document.getElementById('answer-box-' + questionNumber).style.display = "block";
+        document.getElementById('answer-box-5').style.display = "none";
+        document.getElementById('answer-box-6').style.display = "none";
+        document.getElementById('answer-box-7').style.display = "none";
+        document.getElementById('answer-box-8').style.display = "none";
+        document.getElementById('answer-box-9').style.display = "none";
         questionPoints.innerHTML = "[1 mark]";
         }
+    if (questionNumber == 5){
+        document.getElementById('answer-box-1').style.display = "none";
+        document.getElementById('answer-box-2').style.display = "none";
+        document.getElementById('answer-box-3').style.display = "none";
+        document.getElementById('answer-box-4').style.display = "none";
+        document.getElementById('answer-box-6').style.display = "none";
+        document.getElementById('answer-box-7').style.display = "none";
+        document.getElementById('answer-box-8').style.display = "none";
+        document.getElementById('answer-box-9').style.display = "none";
+        document.getElementById('answer-box-' + questionNumber).style.display = "block";
+        questionPoints.innerHTML = "[1 mark]";
+        }
+        if (questionNumber == 6){
+          document.getElementById('answer-box-' + questionNumber).style.display = "block";
+          document.getElementById('answer-box-1').style.display = "none";
+          document.getElementById('answer-box-2').style.display = "none";
+          document.getElementById('answer-box-3').style.display = "none";
+          document.getElementById('answer-box-4').style.display = "none";
+          document.getElementById('answer-box-5').style.display = "none";
+          document.getElementById('answer-box-7').style.display = "none";
+          document.getElementById('answer-box-8').style.display = "none";
+          document.getElementById('answer-box-9').style.display = "none";
+          questionPoints.innerHTML = "[1 mark]";
+          }
+          if (questionNumber == 7){
+            document.getElementById('answer-box-' + questionNumber).style.display = "block";
+            document.getElementById('answer-box-1').style.display = "none";
+            document.getElementById('answer-box-2').style.display = "none";
+            document.getElementById('answer-box-3').style.display = "none";
+            document.getElementById('answer-box-4').style.display = "none";
+            document.getElementById('answer-box-5').style.display = "none";
+            document.getElementById('answer-box-6').style.display = "none";
+            document.getElementById('answer-box-8').style.display = "none";
+            document.getElementById('answer-box-9').style.display = "none";
+            questionPoints.innerHTML = "[1 mark]";
+            }
+            if (questionNumber == 8){
+              document.getElementById('answer-box-' + questionNumber).style.display = "block";
+              document.getElementById('answer-box-1').style.display = "none";
+              document.getElementById('answer-box-2').style.display = "none";
+              document.getElementById('answer-box-3').style.display = "none";
+              document.getElementById('answer-box-4').style.display = "none";
+              document.getElementById('answer-box-5').style.display = "none";
+              document.getElementById('answer-box-7').style.display = "none";
+              document.getElementById('answer-box-6').style.display = "none";
+              document.getElementById('answer-box-9').style.display = "none";
+              questionPoints.innerHTML = "[1 mark]";
+              }
+              if (questionNumber == 9){
+                document.getElementById('answer-box-' + questionNumber).style.display = "block";
+                document.getElementById('answer-box-1').style.display = "none";
+                document.getElementById('answer-box-2').style.display = "none";
+                document.getElementById('answer-box-3').style.display = "none";
+                document.getElementById('answer-box-4').style.display = "none";
+                document.getElementById('answer-box-5').style.display = "none";
+                document.getElementById('answer-box-7').style.display = "none";
+                document.getElementById('answer-box-8').style.display = "none";
+                document.getElementById('answer-box-6').style.display = "none";
+                questionPoints.innerHTML = "[2 marks]";
+                }
   }
 
   function getPreviousAnswers(){
     question(1);
-    for (var i = 0; i < 9; i++) {
+    for (var i = 0; i < 10; i++) {
       if (localStorage.getItem("b-1f-jun-18-1-" + i) == "correct"){
         document.getElementById('answer-box-' + i).style.backgroundColor = "#99ff99";
         document.getElementById('1-' + i).style.backgroundColor = "#99ff99";
@@ -138,7 +256,7 @@ Tick <b>three</b> boxes.
     }
   }
   function checkTextAnswer(answerNumber){
-    var answerList = ["1950","vaccine","vaccinated","immune"];
+    var answerList = ["1950","vaccine","vaccinated","immune","virus","viruses"];
     if (answerNumber = 3){
     var questionbox = document.getElementById("question-box-" + answerNumber)
     if(questionbox.value.includes(answerList[0])) {
@@ -154,6 +272,14 @@ Tick <b>three</b> boxes.
     document.getElementById("1-" + answerNumber).style.backgroundColor = "#99ff99";
     localStorage.setItem("b-1f-jun-18-1-" + answerNumber, "correct");
   }
+}
+if (answerNumber = 5){
+var questionbox = document.getElementById("question-box-" + answerNumber)
+if(questionbox.value.includes(answerList[4]) || questionbox.value.includes(answerList[5])) {
+  document.getElementById("answer-box-" + answerNumber).style.backgroundColor = "#99ff99";
+  document.getElementById("1-" + answerNumber).style.backgroundColor = "#99ff99";
+  localStorage.setItem("b-1f-jun-18-1-" + answerNumber, "correct");
+}
 }
   }
 
@@ -310,6 +436,51 @@ if (document.getElementById("right1").checked == true && document.getElementById
     border-width: 10px;
   }
 
+  div#answer-box-5{
+    padding: 15px;
+    background-color: #DEDEDE;
+    border-radius: 2.5px;
+    border-left-style:solid;
+    border-color:#00e600;
+    border-width: 10px;
+  }
+
+  div#answer-box-6{
+    padding: 15px;
+    background-color: #DEDEDE;
+    border-radius: 2.5px;
+    border-left-style:solid;
+    border-color:#00e600;
+    border-width: 10px;
+  }
+
+  div#answer-box-7{
+    padding: 15px;
+    background-color: #DEDEDE;
+    border-radius: 2.5px;
+    border-left-style:solid;
+    border-color:#00e600;
+    border-width: 10px;
+  }
+
+  div#answer-box-8{
+    padding: 15px;
+    background-color: #DEDEDE;
+    border-radius: 2.5px;
+    border-left-style:solid;
+    border-color:#00e600;
+    border-width: 10px;
+  }
+
+  div#answer-box-9{
+    padding: 15px;
+    background-color: #DEDEDE;
+    border-radius: 2.5px;
+    border-left-style:solid;
+    border-color:#00e600;
+    border-width: 10px;
+  }
+
   p#stats{
     text-align:right;
     background-color: #00e600;
@@ -328,6 +499,11 @@ if (document.getElementById("right1").checked == true && document.getElementById
   #q3-image {
     width:75%;
     height:75%;
+  }
+
+  #q7-image {
+    width:50%;
+    height:50%;
   }
   </style>
 </html>
