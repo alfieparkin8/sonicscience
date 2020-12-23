@@ -19,12 +19,12 @@
     <a style="background-color: #b30000;" href="b-1f-jun-18-1.html" id="1-9">1.9</a>
     <br>
     <br>
-    <a href="#" id="orange">2.1</a>
-    <a href="#" id="orange">2.2</a>
-    <a href="#" id="orange">2.3</a>
-    <a href="#" id="orange">2.4</a>
-    <a href="#" id="orange">2.5</a>
-    <a href="#" id="orange">2.6</a>
+    <a style="background-color: #e65c00;" href="b-1f-jun-18-2.html" id="2-1">2.1</a>
+    <a style="background-color: #e65c00;" href="b-1f-jun-18-2.html" id="2-2">2.2</a>
+    <a style="background-color: #e65c00;" href="b-1f-jun-18-2.html" id="2-3">2.3</a>
+    <a style="background-color: #e65c00;" href="b-1f-jun-18-2.html" id="2-4">2.4</a>
+    <a style="background-color: #e65c00;" href="b-1f-jun-18-2.html" id="2-5">2.5</a>
+    <a style="background-color: #e65c00;" href="b-1f-jun-18-2.html" id="2-6">2.6</a>
     <br>
     <br>
     <a href="#" id="yellow">3.1</a>
@@ -68,6 +68,11 @@
         document.getElementById('1-' + i).style.backgroundColor = "#99ff99";
       }
     }
+    for (var j = 0; j < 7; j++) {
+      if (localStorage.getItem("b-1f-jun-18-2-" + j) == "correct"){
+        document.getElementById('2-' + j).style.backgroundColor = "#99ff99";
+      }
+    }
   }
   </script>
   <style>
@@ -102,10 +107,6 @@
     text-align: center;
     border-radius: 10px;
     font-size:16px;
-  }
-
-  #orange{
-    background-color: #e65c00;
   }
 
   #yellow{

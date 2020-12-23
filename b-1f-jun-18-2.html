@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>SonicScience</title>
+  </head>
+  <body onload="getPreviousAnswers()">
+
+    <p id="stats">
+      Marks:
+      <!--Out of paper total-->
+      Grade:
+      <!--Will use paper boundaries-->
+      Percentage:
+    </p>
+    <h1><a href="b-1f-jun-18.html">SonicScience - Biology</a></h1>
+    <div id="box">
+    <a href="#" id="red">1</a>
+    <a href="#" id="orange">2</a>
+    <a href="#" id="yellow">3</a>
+    <a href="#" id="lime">4</a>
+    <a href="#" id="blue">5</a>
+    <a href="#" id="navy">6</a>
+    <a href="#" id="magenta">7</a>
+    <a href="#" id="purple">8</a>
+    <br>
+    <br>
+    <button id="2-1" onclick="question(1)">2.1</button>
+    <button id="2-2" onclick="question(2)">2.2</button>
+    <button id="2-3" onclick="question(3)">2.3</button>
+    <button id="2-4" onclick="question(4)">2.4</button>
+    <button id="2-5" onclick="question(5)">2.5</button>
+    <button id="2-6" onclick="question(6)">2.6</button>
+    <p id="markNum"><b>[2 marks]</b></p>
+  </div>
+  <br>
+    <div id="answer-box-1">
+      <b>2.1</b> What are the <b>two</b> products of photosynthesis?
+Tick <b>two</b> boxes.
+    <br>
+    <br>
+    <input id="wrong" type="checkbox"> Carbon Dioxide</input>
+    <br>
+    <input id="wrong" type="checkbox"> Chlorophyll</input>
+    <br>
+    <input id="right1" type="checkbox"> Glucose</input>
+    <br>
+    <input id="right2" type="checkbox"> Oxygen</input>
+    <br>
+    <input id="wrong" type="checkbox"> Water</input>
+    <br>
+    <button class="submit-button" type="button" onclick="checkAnswerMultipleTickBox(1)">Submit</button>
+    <p id="marksAchieved-1">[0/2]</p>
+    </div>
+    <div id="answer-box-2">
+    </div>
+    <div id="answer-box-3">
+    </div>
+    <div id="answer-box-4">
+    </div>
+    <div id="answer-box-5">
+    </div>
+    <div id="answer-box-6">
+    </div>
+    <footer>Biology Foundation Paper 1 June 2018</footer>
+  </body>
+  <script>
+  var questionNumber = 1;
+  var questionPoints = document.getElementById('markNum');
+
+  function question(questionNumber){
+    if (questionNumber == 1){
+      document.getElementById('answer-box-' + questionNumber).style.display = "block";
+      document.getElementById('answer-box-2').style.display = "none";
+      document.getElementById('answer-box-3').style.display = "none";
+      document.getElementById('answer-box-4').style.display = "none";
+      document.getElementById('answer-box-5').style.display = "none";
+      document.getElementById('answer-box-6').style.display = "none";
+      questionPoints.innerHTML = "[2 marks]";
+      }
+    if (questionNumber == 2){
+      document.getElementById('answer-box-1').style.display = "none";
+      document.getElementById('answer-box-' + questionNumber).style.display = "block";
+      document.getElementById('answer-box-3').style.display = "none";
+      document.getElementById('answer-box-4').style.display = "none";
+      document.getElementById('answer-box-5').style.display = "none";
+      document.getElementById('answer-box-6').style.display = "none";
+      questionPoints.innerHTML = "[3 marks]";
+      }
+    if (questionNumber == 3){
+        document.getElementById('answer-box-1').style.display = "none";
+        document.getElementById('answer-box-2').style.display = "none";
+        document.getElementById('answer-box-' + questionNumber).style.display = "block";
+        document.getElementById('answer-box-4').style.display = "none";
+        document.getElementById('answer-box-5').style.display = "none";
+        document.getElementById('answer-box-6').style.display = "none";
+        questionPoints.innerHTML = "[2 marks]";
+        }
+    if (questionNumber == 4){
+        document.getElementById('answer-box-1').style.display = "none";
+        document.getElementById('answer-box-2').style.display = "none";
+        document.getElementById('answer-box-3').style.display = "none";
+        document.getElementById('answer-box-' + questionNumber).style.display = "block";
+        document.getElementById('answer-box-5').style.display = "none";
+        document.getElementById('answer-box-6').style.display = "none";
+        questionPoints.innerHTML = "[1 mark]";
+        }
+    if (questionNumber == 5){
+        document.getElementById('answer-box-1').style.display = "none";
+        document.getElementById('answer-box-2').style.display = "none";
+        document.getElementById('answer-box-3').style.display = "none";
+        document.getElementById('answer-box-4').style.display = "none";
+        document.getElementById('answer-box-6').style.display = "none";
+        document.getElementById('answer-box-' + questionNumber).style.display = "block";
+        questionPoints.innerHTML = "[1 mark]";
+        }
+        if (questionNumber == 6){
+          document.getElementById('answer-box-' + questionNumber).style.display = "block";
+          document.getElementById('answer-box-1').style.display = "none";
+          document.getElementById('answer-box-2').style.display = "none";
+          document.getElementById('answer-box-3').style.display = "none";
+          document.getElementById('answer-box-4').style.display = "none";
+          document.getElementById('answer-box-5').style.display = "none";
+          questionPoints.innerHTML = "[1 mark]";
+          }
+        }
+
+  function getPreviousAnswers(){
+    question(1);
+    for (var i = 0; i < 7; i++) {
+      var questionWorth = document.getElementById('marks-' + i);
+      if (localStorage.getItem("b-1f-jun-18-2-" + i) == "correct"){
+        document.getElementById('answer-box-' + i).style.backgroundColor = "#99ff99";
+        document.getElementById('2-' + i).style.backgroundColor = "#99ff99";
+      }
+      if (localStorage.getItem("b-1f-jun-18-2-1") == "correct"){
+        document.getElementById('marksAchieved-1').innerHTML = "[2/2]"
+      }
+    }
+}
+  function checkAnswerMultipleTickBox(answerNumber){
+  if (document.getElementById("right1").checked == true && document.getElementById("right2").checked == true) {
+    document.getElementById("answer-box-" + answerNumber).style.backgroundColor = "#99ff99";
+    document.getElementById("2-" + answerNumber).style.backgroundColor = "#99ff99";
+    localStorage.setItem("b-1f-jun-18-2-" + answerNumber, "correct");
+    document.getElementById('marksAchieved-1').innerHTML = "[2/2]"
+  }
+  else if (document.getElementById("right1").checked == true || document.getElementById("right2").checked == true)
+  {
+    document.getElementById('marksAchieved-1').innerHTML = "[1/2]"
+  }
+  }
+</script>
+  <style>
+  * {
+    font-family: Arial;
+    font-size: 24px;
+  }
+
+  h1 a{
+    font-size: 36px;
+    color: #00e600;
+    margin-left: 20px;
+    background-color: white;
+  }
+
+  footer{
+  font-size: 18px;
+  background-color: grey;
+  padding:10px;
+  color:white;
+  }
+
+  a{
+    border:none;
+    background-color: #e65c00;
+    text-decoration: none;
+    padding:12.5px;
+    color:white;
+    text-align: center;
+    border-radius: 10px;
+    font-size:16px;
+  }
+
+  #markNum {
+    float:right;
+    font-weight: bold;
+  }
+
+  .submit-button {
+      border:none;
+      background-color: #a3a3c2;
+      text-decoration: none;
+      padding:8px;
+      color:white;
+      text-align: center;
+      border-radius: 5px;
+      font-size:16px;
+      margin-top:10px;
+  }
+
+  button {
+      border:none;
+      background-color: #e65c00;
+      text-decoration: none;
+      padding:12.5px;
+      color:white;
+      text-align: center;
+      border-radius: 10px;
+      font-size:16px;
+  }
+
+  a.disabled{
+    background-color: grey;
+  }
+
+  #red {
+    background-color: #b30000;
+  }
+
+  #yellow{
+    background-color: #ffff33;
+  }
+
+  #lime{
+    background-color: #33ff33;
+  }
+
+  #blue{
+    background-color: #4db8ff;
+  }
+
+  #navy{
+    background-color: #3333ff;
+  }
+
+  #magenta{
+    background-color: #ff33ff;
+  }
+
+  #purple{
+    background-color: #99004d;
+  }
+
+  div#box{
+    padding: 15px;
+    background-color: #DEDEDE;
+    border-radius: 2.5px;
+    border-left-style:solid;
+    border-color:#00e600;
+    border-width: 10px;
+  }
+
+  div#answer-box-1{
+    padding: 15px;
+    background-color: #DEDEDE;
+    border-radius: 2.5px;
+    border-left-style:solid;
+    border-color:#00e600;
+    border-width: 10px;
+  }
+
+  div#answer-box-2{
+    display: none;
+    padding: 15px;
+    background-color: #DEDEDE;
+    border-radius: 2.5px;
+    border-left-style:solid;
+    border-color:#00e600;
+    border-width: 10px;
+  }
+
+  div#answer-box-3{
+    padding: 15px;
+    background-color: #DEDEDE;
+    border-radius: 2.5px;
+    border-left-style:solid;
+    border-color:#00e600;
+    border-width: 10px;
+  }
+
+  div#answer-box-4{
+    padding: 15px;
+    background-color: #DEDEDE;
+    border-radius: 2.5px;
+    border-left-style:solid;
+    border-color:#00e600;
+    border-width: 10px;
+  }
+
+  div#answer-box-5{
+    padding: 15px;
+    background-color: #DEDEDE;
+    border-radius: 2.5px;
+    border-left-style:solid;
+    border-color:#00e600;
+    border-width: 10px;
+  }
+
+  div#answer-box-6{
+    padding: 15px;
+    background-color: #DEDEDE;
+    border-radius: 2.5px;
+    border-left-style:solid;
+    border-color:#00e600;
+    border-width: 10px;
+  }
+
+  div#answer-box-7{
+    padding: 15px;
+    background-color: #DEDEDE;
+    border-radius: 2.5px;
+    border-left-style:solid;
+    border-color:#00e600;
+    border-width: 10px;
+  }
+
+  div#answer-box-8{
+    padding: 15px;
+    background-color: #DEDEDE;
+    border-radius: 2.5px;
+    border-left-style:solid;
+    border-color:#00e600;
+    border-width: 10px;
+  }
+
+  div#answer-box-9{
+    padding: 15px;
+    background-color: #DEDEDE;
+    border-radius: 2.5px;
+    border-left-style:solid;
+    border-color:#00e600;
+    border-width: 10px;
+  }
+
+  p#stats{
+    text-align:right;
+    background-color: #00e600;
+    color:white;
+    float:right;
+    padding:12.5px;
+    border-radius:10px;
+    margin-top:0px;
+  }
+
+  #marksAchieved-1 {
+    float:right;
+    font-weight: bold;
+    color:black;
+    margin:10px;
+  }
+
+  #marksAchieved-2 {
+    float:right;
+    font-weight: bold;
+    color:black;
+    margin:10px;
+  }
+
+  #marksAchieved-3 {
+    float:right;
+    font-weight: bold;
+    color:black;
+    margin:10px;
+  }
+
+  #marksAchieved-4 {
+    float:right;
+    font-weight: bold;
+    color:black;
+    margin:10px;
+  }
+
+  #marksAchieved-5 {
+    float:right;
+    font-weight: bold;
+    color:black;
+    margin:10px;
+  }
+
+  #marksAchieved-6 {
+    float:right;
+    font-weight: bold;
+    color:black;
+    margin:10px;
+  }
+
+
+  #marksAchieved-7 {
+    float:right;
+    font-weight: bold;
+    color:black;
+    margin:10px;
+  }
+
+
+  #marksAchieved-8 {
+    float:right;
+    font-weight: bold;
+    color:black;
+    margin:10px;
+  }
+
+  #marksAchieved-9 {
+    float:right;
+    font-weight: bold;
+    color:black;
+    margin:10px;
+  }
+
+  #q1-image {
+    width:20%;
+    height:20%;
+  }
+
+  #q3-image {
+    width:75%;
+    height:75%;
+  }
+
+  #q7-image {
+    width:50%;
+    height:50%;
+  }
+  </style>
+</html>
