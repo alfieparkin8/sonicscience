@@ -15,7 +15,7 @@
     </p>
     <h1><a href="b-1f-jun-18.html">SonicScience - Biology</a></h1>
     <div id="box">
-    <a href="#" id="red">1</a>
+    <a href="b-1f-jun-18-1.html" id="red">1</a>
     <a href="#" id="orange">2</a>
     <a href="#" id="yellow">3</a>
     <a href="#" id="lime">4</a>
@@ -43,9 +43,9 @@ Tick <b>two</b> boxes.
     <br>
     <input id="wrong" type="checkbox"> Chlorophyll</input>
     <br>
-    <input id="right1" type="checkbox"> Glucose</input>
+    <input id="1-right1" type="checkbox"> Glucose</input>
     <br>
-    <input id="right2" type="checkbox"> Oxygen</input>
+    <input id="1-right2" type="checkbox"> Oxygen</input>
     <br>
     <input id="wrong" type="checkbox"> Water</input>
     <br>
@@ -53,8 +53,32 @@ Tick <b>two</b> boxes.
     <p id="marksAchieved-1">[0/2]</p>
     </div>
     <div id="answer-box-2">
+      <b>2.2</b> How could the student measure the rate of photosynthesis more accurately?
+Tick <b>two</b> boxes.
+<br>
+<br>
+<img id="q2-image" src="img/q2-2.jpeg" alt="Check your Internet Connection">
+<br>
+<input id="2-right1" type="checkbox"> Count the number of bubbles produced in 1 minute</input>
+<br>
+<input id="wrong" type="checkbox"> Measure the change in mass of the pondweed in 30 seconds</input>
+<br>
+<input id="2-right2" type="checkbox"> Measure the volume of gas produced in 30 seconds</input>
+<br>
+<input id="wrong" type="checkbox"> Place the pondweed further from the light source</input>
+<br>
+<input id="wrong" type="checkbox"> Use water instead of sodium hydrogencarbonate solution</input>
+<br>
+<button class="submit-button" type="button" onclick="checkAnswerMultipleTickBox(2)">Submit</button>
+<p id="marksAchieved-2">[0/2]</p>
     </div>
     <div id="answer-box-3">
+      <b>2.3</b> The LED light source does <b>not</b> get hot.
+Why is this important?
+<br>
+<input id="question-box-3" type="text" style="width:80%"></input>
+<submit class="submit-button" type="button" onclick="checkTextAnswer(3)">Submit</button>
+<p id="marksAchieved-3">[0/1]</p>
     </div>
     <div id="answer-box-4">
     </div>
@@ -85,7 +109,7 @@ Tick <b>two</b> boxes.
       document.getElementById('answer-box-4').style.display = "none";
       document.getElementById('answer-box-5').style.display = "none";
       document.getElementById('answer-box-6').style.display = "none";
-      questionPoints.innerHTML = "[3 marks]";
+      questionPoints.innerHTML = "[2 marks]";
       }
     if (questionNumber == 3){
         document.getElementById('answer-box-1').style.display = "none";
@@ -94,7 +118,7 @@ Tick <b>two</b> boxes.
         document.getElementById('answer-box-4').style.display = "none";
         document.getElementById('answer-box-5').style.display = "none";
         document.getElementById('answer-box-6').style.display = "none";
-        questionPoints.innerHTML = "[2 marks]";
+        questionPoints.innerHTML = "[1 mark]";
         }
     if (questionNumber == 4){
         document.getElementById('answer-box-1').style.display = "none";
@@ -133,23 +157,41 @@ Tick <b>two</b> boxes.
         document.getElementById('answer-box-' + i).style.backgroundColor = "#99ff99";
         document.getElementById('2-' + i).style.backgroundColor = "#99ff99";
       }
+      if (localStorage.getItem("1-complete") == "true"){
+        document.getElementById('red').style.backgroundColor = "#99ff99";
+      }
       if (localStorage.getItem("b-1f-jun-18-2-1") == "correct"){
         document.getElementById('marksAchieved-1').innerHTML = "[2/2]"
       }
     }
 }
   function checkAnswerMultipleTickBox(answerNumber){
-  if (document.getElementById("right1").checked == true && document.getElementById("right2").checked == true) {
+  if (document.getElementById(answerNumber + "-right1").checked == true && document.getElementById(answerNumber + "-right2").checked == true) {
     document.getElementById("answer-box-" + answerNumber).style.backgroundColor = "#99ff99";
     document.getElementById("2-" + answerNumber).style.backgroundColor = "#99ff99";
     localStorage.setItem("b-1f-jun-18-2-" + answerNumber, "correct");
-    document.getElementById('marksAchieved-1').innerHTML = "[2/2]"
+    document.getElementById('marksAchieved-' + answerNumber).innerHTML = "[2/2]"
   }
-  else if (document.getElementById("right1").checked == true || document.getElementById("right2").checked == true)
+  else if (document.getElementById(answerNumber + "-right1").checked == true || document.getElementById(answerNumber + "-right2").checked == true)
   {
-    document.getElementById('marksAchieved-1').innerHTML = "[1/2]"
+    document.getElementById('marksAchieved-' + answerNumber).innerHTML = "[1/2]"
   }
   }
+
+  function checkTextAnswer(answerNumber){
+    var questionPoints = document.getElementById('markNum');
+    var answerList = ["temperature"];
+    if (answerNumber = 3){
+    var currentPoints = document.getElementById('marksAchieved-3');
+    var questionbox = document.getElementById("question-box-" + answerNumber)
+    if(questionbox.value.includes(answerList[0])) {
+      document.getElementById("answer-box-" + answerNumber).style.backgroundColor = "#99ff99";
+      document.getElementById("2-" + answerNumber).style.backgroundColor = "#99ff99";
+      localStorage.setItem("b-1f-jun-18-2-" + answerNumber, "correct");
+      currentPoints.innerHTML = "[1/1]";
+    }
+  }
+}
 </script>
   <style>
   * {
